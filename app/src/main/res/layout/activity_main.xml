@@ -9,10 +9,11 @@
 
     <Button
         android:id="@+id/connectButton"
+        android:visibility="invisible"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="5dp"
+        android:layout_height="5dp"
         android:text="Connect"
     />
 
@@ -20,35 +21,108 @@
         android:id="@+id/oneButton"
         app:layout_constraintTop_toBottomOf="@id/connectButton"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button One"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:text="One"
         />
 
     <Button
         android:id="@+id/twoButton"
-        app:layout_constraintTop_toBottomOf="@id/oneButton"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button Two"
+        app:layout_constraintTop_toBottomOf="@id/connectButton"
+        app:layout_constraintLeft_toRightOf="@id/oneButton"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:text="Two"
         />
 
     <Button
         android:id="@+id/threeButton"
-        app:layout_constraintTop_toBottomOf="@id/twoButton"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button Three"
+        app:layout_constraintTop_toBottomOf="@id/connectButton"
+        app:layout_constraintLeft_toRightOf="@id/twoButton"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:text="Three"
         />
 
+    <Button
+        android:id="@+id/fourButton"
+        app:layout_constraintTop_toBottomOf="@id/oneButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:text="Four"
+        />
+
+    <Button
+        android:id="@+id/fiveButton"
+        app:layout_constraintTop_toBottomOf="@id/oneButton"
+        app:layout_constraintLeft_toRightOf="@id/fourButton"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:text="Five"
+        />
+
+    <Button
+        android:id="@+id/sixButton"
+        app:layout_constraintTop_toBottomOf="@id/oneButton"
+        app:layout_constraintLeft_toRightOf="@id/fiveButton"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:text="Six"
+        />
+
+    <Button
+        android:id="@+id/sevenButton"
+        app:layout_constraintTop_toBottomOf="@id/fourButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:text="Seven"
+        />
+
+    <Button
+        android:id="@+id/eightButton"
+        app:layout_constraintTop_toBottomOf="@id/fourButton"
+        app:layout_constraintLeft_toRightOf="@id/sevenButton"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:text="Eight"
+        />
+
+    <Button
+        android:id="@+id/nineButton"
+        app:layout_constraintTop_toBottomOf="@id/fourButton"
+        app:layout_constraintLeft_toRightOf="@id/eightButton"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:text="Nine"
+        />
+
+    <Button
+        android:id="@+id/tenButton"
+        app:layout_constraintTop_toBottomOf="@id/fourButton"
+        app:layout_constraintLeft_toRightOf="@id/nineButton"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:text="Ten"
+        />
 
     <TextView
         android:id="@+id/debugText"
+        android:visibility="invisible"
         android:layout_width="500dp"
         android:layout_height="300dp"
-        app:layout_constraintTop_toBottomOf="@id/threeButton"
+        app:layout_constraintTop_toBottomOf="@id/sevenButton"
         app:layout_constraintLeft_toLeftOf="parent"
         />
 

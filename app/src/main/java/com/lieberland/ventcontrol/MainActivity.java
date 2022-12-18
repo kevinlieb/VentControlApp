@@ -31,6 +31,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.nio.charset.StandardCharsets;
+
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
     private static final String TAG = "MainActivity";
     MqttAndroidClient client;
@@ -40,6 +42,15 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     Button oneButton;
     Button twoButton;
     Button threeButton;
+    Button fourButton;
+    Button fiveButton;
+    Button sixButton;
+    Button sevenButton;
+    Button eightButton;
+    Button nineButton;
+    Button tenButton;
+
+    Button buttons[];
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
@@ -63,11 +74,58 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         threeButton = findViewById(R.id.threeButton);
         threeButton.setOnClickListener(this);
 
+        fourButton = findViewById(R.id.fourButton);
+        fourButton.setOnClickListener(this);
+
+        fiveButton = findViewById(R.id.fiveButton);
+        fiveButton.setOnClickListener(this);
+
+        sixButton = findViewById(R.id.sixButton);
+        sixButton.setOnClickListener(this);
+
+        sevenButton = findViewById(R.id.sevenButton);
+        sevenButton.setOnClickListener(this);
+
+        eightButton = findViewById(R.id.eightButton);
+        eightButton.setOnClickListener(this);
+
+        nineButton = findViewById(R.id.nineButton);
+        nineButton.setOnClickListener(this);
+
+        tenButton = findViewById(R.id.tenButton);
+        tenButton.setOnClickListener(this);
+
+        buttons = new Button[11];
+
+        buttons[1] = oneButton;
+        buttons[2] = twoButton;
+        buttons[3] = threeButton;
+        buttons[4] = fourButton;
+        buttons[5] = fiveButton;
+        buttons[6] = sixButton;
+        buttons[7] = sevenButton;
+        buttons[8] = eightButton;
+        buttons[9] = nineButton;
+        buttons[10] = tenButton;
+
+        buttons[1].setText("WipeRed");
+        buttons[2].setText("WipeGreen");
+        buttons[3].setText("WipeBlue");
+
+        buttons[4].setText("T-White");
+        buttons[5].setText("T-Red");
+        buttons[6].setText("T-Blue");
+
+        buttons[7].setText("Rainbow");
+        buttons[8].setText("R-Chase");
+        buttons[9].setText("Christmas");
+        buttons[10].setText("Chanukah");
+
         debugText = findViewById(R.id.debugText);
 
         String clientId = MqttClient.generateClientId();
         //client = new MqttAndroidClient(this.getApplicationContext(), "tcp://broker.mqttdashboard.com:1883",clientId);
-        client = new MqttAndroidClient(this.getApplicationContext(), "tcp://hummbug2:1883",clientId);
+        client = new MqttAndroidClient(this.getApplicationContext(), "tcp://192.168.1.103:1883",clientId);
 
         try {
             IMqttToken token = client.connect();
@@ -188,16 +246,59 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             Log.d(TAG, "Connect button pressed");
         }
 
-        if(view.getId() == R.id.oneButton) {
-            Log.d(TAG, "One button pressed");
-        }
+        try {
+            if (view.getId() == R.id.oneButton) {
+                Log.d(TAG, "One button pressed");
+                client.publish("lights", new MqttMessage("1".getBytes(StandardCharsets.UTF_8)));
+            }
 
-        if(view.getId() == R.id.twoButton) {
-            Log.d(TAG, "Two button pressed");
-        }
+            if (view.getId() == R.id.twoButton) {
+                Log.d(TAG, "Two button pressed");
+                client.publish("lights", new MqttMessage("2".getBytes(StandardCharsets.UTF_8)));
+            }
 
-        if(view.getId() == R.id.threeButton) {
-            Log.d(TAG, "Three button pressed");
+            if (view.getId() == R.id.threeButton) {
+                Log.d(TAG, "Three button pressed");
+                client.publish("lights", new MqttMessage("3".getBytes(StandardCharsets.UTF_8)));
+            }
+
+            if (view.getId() == R.id.fourButton) {
+                Log.d(TAG, "Four button pressed");
+                client.publish("lights", new MqttMessage("4".getBytes(StandardCharsets.UTF_8)));
+            }
+
+            if (view.getId() == R.id.fiveButton) {
+                Log.d(TAG, "Five button pressed");
+                client.publish("lights", new MqttMessage("5".getBytes(StandardCharsets.UTF_8)));
+            }
+
+            if (view.getId() == R.id.sixButton) {
+                Log.d(TAG, "Six button pressed");
+                client.publish("lights", new MqttMessage("6".getBytes(StandardCharsets.UTF_8)));
+            }
+
+            if (view.getId() == R.id.sevenButton) {
+                Log.d(TAG, "Seven button pressed");
+                client.publish("lights", new MqttMessage("7".getBytes(StandardCharsets.UTF_8)));
+            }
+
+            if (view.getId() == R.id.eightButton) {
+                Log.d(TAG, "Eight button pressed");
+                client.publish("lights", new MqttMessage("8".getBytes(StandardCharsets.UTF_8)));
+            }
+
+            if (view.getId() == R.id.nineButton) {
+                Log.d(TAG, "Nine button pressed");
+                client.publish("lights", new MqttMessage("9".getBytes(StandardCharsets.UTF_8)));
+            }
+
+            if (view.getId() == R.id.tenButton) {
+                Log.d(TAG, "Ten button pressed");
+                client.publish("lights", new MqttMessage("0".getBytes(StandardCharsets.UTF_8)));
+            }
+        }
+        catch (Exception e) {
+            Log.e(TAG, "Failed to send message");
         }
     }
 }
